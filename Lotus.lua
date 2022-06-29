@@ -215,7 +215,7 @@ return kk
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,5333206782,5125194988,5396185830}  
+local ListSudos ={Sudo_Id,5333206782,5125194988,5362992036,5241548008}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -238,7 +238,7 @@ if UserId == 5333206782 then
 Status = 'مبرمج السورس'
 elseif UserId == 5125194988 then
 Status = 'مبرمج السورس'
-elseif UserId == 5396185830 then
+elseif UserId == 5362992036 then
 Status = 'مطور السورس'
 elseif UserId == 5241548008 then
 Status = 'مطور جوست'
@@ -821,7 +821,7 @@ if UserId == 5333206782 then
 Status = true
 elseif UserId == 5125194988 then
 Status = true
-elseif UserId == 5396185830 then
+elseif UserId == 5362992036 then
 Status = true
 elseif UserId == 5241548008 then
 Status = true
@@ -867,7 +867,7 @@ if UserId == 5333206782 then
 Status = true
 elseif UserId == 5125194988 then
 Status = true
-elseif UserId == 5396185830 then
+elseif UserId == 5362992036 then
 Status = true
 elseif UserId == 5241548008 then
 Status = true
@@ -1053,7 +1053,7 @@ msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 5125194988 then
 msg.Name_Controller = 'مطور السورس '
 msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 5396185830 then
+elseif tonumber(msg.sender.user_id) == 5362992036 then
 msg.Name_Controller ='  مطور السورس'  
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 5241548008 then
@@ -5294,10 +5294,6 @@ if TextMsg == 'اطردني' then
 Redis:del(Lotus.."Status:KickMe"..msg_chat_id) 
 return send(msg_chat_id,msg_id,"◍ تم تعطيل اطردني ","md",true)
 end
-if TextMsg == 'تعطيل ردود السورس' then
-Redis:del(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) 
-return LuaTele.sendText(msg_chat_id,msg_id,"*◍ تم تعطيل ردود السورس *","md",true)
-end
 if TextMsg == 'نزلني' then
 Redis:del(Lotus.."Status:remMe"..msg_chat_id) 
 return send(msg_chat_id,msg_id,"◍ تم تعطيل نزلني ","md",true)
@@ -6162,8 +6158,8 @@ end
 if UserId == "5125194988" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور محمد*","md",true)  
 end
-if UserId == "5396185830" then
-return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور شيكو*","md",true)  
+if UserId == "5362992036" then
+return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور المهلك*","md",true)  
 end
 if UserId == "5241548008" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور جوست*","md",true)  
@@ -6205,8 +6201,8 @@ end
 if UserId == "5125194988" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور محمد*","md",true)  
 end
-if UserId == "5396185830" then
-return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور شيكو*","md",true)  
+if UserId == "5362992036" then
+return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور المهلك*","md",true)  
 end
 if UserId == "5241548008" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور جوست*","md",true)  
@@ -6695,6 +6691,7 @@ if y == true then
 send(msg_chat_id,msg_id,restricted,"md",true)  
 end
 end
+
 
 if text == 'غادر' or text == 'بوت غادر' then
 if not msg.Dev then
@@ -11773,8 +11770,8 @@ local msg_id = msg.id/2097152/0.5
 end
 end
 end
-if text == 'شريف' or text == 'شيكو' or text == 'مطور السورس' then  
-local UserId_Info = LuaTele.searchPublicChat("SHYCO1")
+if text == 'فولكانو' or text == 'المهلك' or text == 'مطور السورس' then  
+local UserId_Info = LuaTele.searchPublicChat("UUELMOHLEK")
 if UserId_Info.id then
 local  ban = LuaTele.getUser(UserId_Info.id)
 local  bain = LuaTele.getUserFullInfo(UserId_Info.id)
@@ -11932,10 +11929,6 @@ send(msg_chat_id,msg_id,'\n*◍ هذا الامر يخص  '..Controller_Num(7)..
 end
 Redis:set(Lotus.."sayy"..msg_chat_id,"off")
 send(msg_chat_id,msg_id,'\n*◍ تم تعطيل امر قول * ',"md",true)  
-end
-if TextMsg == 'تفعيل ردود السورس' then
-Redis:set(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id,true) 
-return LuaTele.sendText(msg_chat_id,msg_id,"*◍ تم تفعيل ردود السورس *","md",true)
 end
 if text == "جمالي" or text == 'نسبه جمالي' then
 if Redis:get(Lotus.."mybuti"..msg_chat_id) == "off" then
@@ -12165,7 +12158,7 @@ if msg.sender.user_id == tonumber(5333206782) then
 send(msg_chat_id,msg_id,"◍ انت مبرمج السورس يقلبي","md",true)
 elseif msg.sender.user_id == tonumber(5125194988) then
 send(msg_chat_id,msg_id,"◍ انت مطور السورس يقلبي","md",true)
-elseif msg.sender.user_id == tonumber(5396185830) then
+elseif msg.sender.user_id == tonumber(5362992036) then
 send(msg_chat_id,msg_id,"◍ انت مطور السورس يقلبي","md",true)
 elseif msg.sender.user_id == tonumber(5241548008) then
 send(msg_chat_id,msg_id,"◍ انت مطور جوست يقلبي","md",true)
@@ -12656,234 +12649,6 @@ if text == "بوت طلقني" then
     Redis:del(Lotus..msg_chat_id..zwg_id.."mtzwga:")
     return LuaTele.sendText(msg_chat_id,msg_id,"تم طلاقك من ["..zwg_name.."](tg://user?id="..zwg_id..")\nشوفو مين هياخد العيال بقا","md")
   end
-end
-if text == 'هاي' or text == 'هيي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*خالتك جرت ورايا 😂😂😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'سلام عليكم' or text == 'السلام عليكم' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*وعليكم السلام 🌝❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'سلام' or text == 'مع سلامه' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*مع الف سلامه يقلبي متجيش تاني 😂❤️🎶*',"md",false, false, false, false, reply_markup)
-end
-if text == 'النبي' or text == 'صلي علي النبي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*عليه الصلاه والسلام 🌝💛*',"md",false, false, false, false, reply_markup)
-end
-if text == 'نعم' or text == 'يا نعم' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*نعم الله عليك 🌚❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == '🙄' or text == '🙄🙄' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'* نزل عينك تحت كدا علشان هتخاد علي قفاك 💃🌝*',"md",false, false, false, false, reply_markup)
-end
-if text == '🤔' or text == '🤔🤔' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'* بتفكر في اي 🤔*',"md",false, false, false, false, reply_markup)
-end
-if text == '🌚' or text == '🌝' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*القمر ده شبهك 🙂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == '💋' or text == '💋💋' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*انا عايز مح انا كمان 🥺❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == '😭' or text == '😭😭' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*بتعيط تيب لي طيب 😥*',"md",false, false, false, false, reply_markup)
-end
-if text == '🥺' or text == '🥺🥺' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*متزعلش بحبك 🥺❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == '😒😒' or text == '😒😒😒' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*اعدل وشك ونت بتكلمني يحقير 😒❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'بحبك' or text == 'حبق' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*وانا كمان بعشقك يا روحي 🤗🥰*',"md",false, false, false, false, reply_markup)
-end
-if text == 'مح' or text == 'هات مح' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*محات حياتي يروحي 🌝❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'هلا' or text == 'هلا وغلا' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*امك طبخه ايه 🤔❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'هشش' or text == 'هششخرص' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*بنهش كتاكيت احنا هنا ولا اي 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'الحمد الله' or text == 'بخير الحمد الله' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*دايما ياحبيبي 🌝❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'صباح الخير' or text == 'مساء الخير' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*انت الخير يعمري 🌝❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'صباح النور' or text == 'باح الخير' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*صباح العسل 😘❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'حصل' or text == 'حثل' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'* صاحبي البارح بيا اتصال 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'اه' or text == 'اها' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*اه اي يا قدع عيب 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'بوتي' or text == 'يا بوتي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'روح وعقل بوتك 🥺❤️',"md",false, false, false, false, reply_markup)
-end
-if text == 'متيجي' or text == 'تع' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*لا عيب بتكسف 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'هيح' or text == 'لسه صاحي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*صح النوم 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'منور' or text == 'نورت' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*ده نورك ي قلبي 🥺❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'باي' or text == 'انا ماشي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*ع فين لوين رايح وسايبنى 🥺❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'خخخ' or text == 'خخخخخ' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*اهدا يوحش ميصحش كدا 😒❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'شكرا' or text == 'مرسي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*العفو ياروحي 🙈🌝*',"md",false, false, false, false, reply_markup)
-end
-if text == 'حلوه' or text == 'حلو' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*انت الي حلو ياقمر 🤤🌝*',"md",false, false, false, false, reply_markup)
-end
-if text == 'حاضر' or text == 'حتر' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*حضرلك الخير يارب 🙂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'جيت' or text == 'انا جيت' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'* لف ورجع تانى مشحوار 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'بخ' or text == 'عو' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*يوه خضتني ياسمك اي 🥺❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'حبيبي' or text == 'حبيبتي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*اوه ياه 🌝😂*',"md",false, false, false, false, reply_markup)
-end
-if text == 'تمام' or text == 'تمم' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'* امك اسمها احلام 😂😂*',"md",false, false, false, false, reply_markup)
-end
-if text == 'خلاص' or text == 'خلص' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*خلصتت روحكك يبعيد 😂❤️*',"md",false, false, false, false, reply_markup)
-end
-if text == 'سي في' or text == 'سيفي' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*كفيه شقط سيب حاجه لغيرك 😎😂*',"md",false, false, false, false, reply_markup)
-end
-if text == 'فوق' or text == 'بص فوق' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*عند بيت ام فارووق 💃😂*',"md",false, false, false, false, reply_markup)
-end
-if text == 'فل' or text == 'فول' then
-if not Redis:get(Lotus.."Lotus:Sa:Fo:Mo"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
-end
-return LuaTele.sendText(msg_chat_id,msg_id,'*فلافل 🌶️*',"md",false, false, false, false, reply_markup)
 end
 -------
 
@@ -13984,7 +13749,7 @@ Redis:set(Lotus.."Game:Smile"..msg.chat_id,SM)
 return send(msg_chat_id,msg_id,"◍اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}","md",true)  
 end
 end
---بنك--
+--بنك
 if text == "توب الحراميه" or text == "الحراميه" then
 local bank_users = Redis:smembers(Lotus.."zrfffidtf")
 if #bank_users == 0 then
@@ -14117,7 +13882,7 @@ gg = Redis:get(Lotus.."nnonb"..yemsg.sender.user_id)
 uuuu = Redis:get(Lotus.."nnonbn"..yemsg.sender.user_id)
 pppp = Redis:get(Lotus.."zrffdcf"..yemsg.sender.user_id) or 0
 ballancee = Redis:get(Lotus.."nool:flotysb"..yemsg.sender.user_id) or 0
-LuaTele.sendText(msg.chat_id,msg.id, "•* الاسم ↢ *"..news.."\n*• الحساب ↢ *`"..cccc.."`\n*• بنك ↢ ( البشوات )\n• نوع ↢ ( *"..uuuu.."* )\n• الرصيد ↢ ( *"..ballancee.."* جنيه 💸 )\n• الزرف ( *"..pppp.."* جنيه 💸 )\n-*","md",true)
+LuaTele.sendText(msg.chat_id,msg.id, "•* الاسم ↢ *"..news.."\n*• الحساب ↢ *`"..cccc.."`\n*• بنك ↢ ( مكس )\n• نوع ↢ ( *"..uuuu.."* )\n• الرصيد ↢ ( *"..ballancee.."* جنيه 💸 )\n• الزرف ( *"..pppp.."* جنيه 💸 )\n-*","md",true)
 else
 LuaTele.sendText(msg.chat_id,msg.id, "• ماعنده  حساب بنكي لازم يرسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
@@ -14167,7 +13932,7 @@ Redis:set(Lotus.."nonallban"..creditcc,text)
 Redis:set(Lotus.."nonallid"..creditcc,banid)
 Redis:sadd(Lotus.."noooybgy",msg.sender.user_id)
 Redis:del(Lotus.."nooolb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك البشوات \n\n• رقم حسابك ↢ ( `"..creditcc.."` )\n• نوع البطاقة ↢ ( "..gg.." )\n• فلوسك ↢ ( `"..flossst.."` جنيه 💵 )  ","md",true)  
+LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك مكس \n\n• رقم حسابك ↢ ( `"..creditcc.."` )\n• نوع البطاقة ↢ ( "..gg.." )\n• فلوسك ↢ ( `"..flossst.."` جنيه 💵 )  ","md",true)  
 end 
 if text == "ماستر" then
 local ban = LuaTele.getUser(msg.sender.user_id)
@@ -14175,7 +13940,7 @@ if ban.first_name then
 news = ""..ban.first_name..""
 else
 news = " لا يوجد"
-end 
+end
 gg = "💳 ماستر"
 flossst = Redis:get(Lotus.."nool:flotysb"..msg.sender.user_id) or 0
 local banid = msg.sender.user_id
@@ -14190,7 +13955,7 @@ Redis:set(Lotus.."nonallban"..creditvi,text)
 Redis:set(Lotus.."nonallid"..creditvi,banid)
 Redis:sadd(Lotus.."noooybgy",msg.sender.user_id)
 Redis:del(Lotus.."nooolb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك البشوات \n\n• رقم حسابك ↢ ( `"..creditvi.."` )\n• نوع البطاقة ↢ ( "..gg.." )\n• فلوسك ↢ ( `"..flossst.."` جنيه 💵 )  ","md",true)   
+LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك مكس \n\n• رقم حسابك ↢ ( `"..creditvi.."` )\n• نوع البطاقة ↢ ( "..gg.." )\n• فلوسك ↢ ( `"..flossst.."` جنيه 💵 )  ","md",true)   
 end 
 if text == "اكسبرس" then
 local ban = LuaTele.getUser(msg.sender.user_id)
@@ -14213,7 +13978,7 @@ Redis:set(Lotus.."nonallban"..creditex,text)
 Redis:set(Lotus.."nonallid"..creditex,banid)
 Redis:sadd(Lotus.."noooybgy",msg.sender.user_id)
 Redis:del(Lotus.."nooolb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك البشوات \n\n• رقم حسابك ↢ ( `"..creditex.."` )\n• نوع البطاقة ↢ ( "..gg.." )\n• فلوسك ↢ ( `"..flossst.."` جنيه 💵 )  ","md",true)   
+LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك مكس \n\n• رقم حسابك ↢ ( `"..creditex.."` )\n• نوع البطاقة ↢ ( "..gg.." )\n• فلوسك ↢ ( `"..flossst.."` جنيه 💵 )  ","md",true)   
 end 
 end
 if text == 'مسح حساب بنكي' or text == 'مسح حسابي' or text == 'حذف حسابي' or text == 'مسح حساب البنكي' or text =='مسح الحساب بنكي' or text =='مسح الحساب البنكي' or text == "مسح حسابي البنكي" or text == "مسح حسابي بنكي" then
@@ -14294,7 +14059,7 @@ gg = Redis:get(Lotus.."nnonb"..msg.sender.user_id)
 uuuu = Redis:get(Lotus.."nnonbn"..msg.sender.user_id)
 pppp = Redis:get(Lotus.."zrffdcf"..msg.sender.user_id) or 0
 ballancee = Redis:get(Lotus.."nool:flotysb"..msg.sender.user_id) or 0
-LuaTele.sendText(msg.chat_id,msg.id, "• الاسم ↢ "..news.."\n• الحساب ↢ `"..cccc.."`\n• بنك ↢ ( البشوات )\n• نوع ↢ ( "..uuuu.." )\n• الرصيد ↢ ( "..ballancee.." جنيه 💵 )\n• الزرف ( "..pppp.." جنيه 💵 )\n-","md",true)
+LuaTele.sendText(msg.chat_id,msg.id, "• الاسم ↢ "..news.."\n• الحساب ↢ `"..cccc.."`\n• بنك ↢ ( مكس )\n• نوع ↢ ( "..uuuu.." )\n• الرصيد ↢ ( "..ballancee.." جنيه 💵 )\n• الزرف ( "..pppp.." جنيه 💵 )\n-","md",true)
 else
 LuaTele.sendText(msg.chat_id,msg.id, "• ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
@@ -14420,7 +14185,7 @@ Redis:del(Lotus.."nool:flotysb"..msg.sender.user_id)
 LuaTele.sendText(msg.chat_id,msg.id, "تم تصفير فلوسك","md",true)
 end
 if text == "البنك" or text == "بنك" or text == "بنكي" then
-LuaTele.sendText(msg.chat_id,msg.id,"- اوامر بنك البشوات\n\n- انشاء حساب بنكي  ↢ تسوي حساب وتقدر تحول فلوس مع مزايا ثانيه\n\n- مسح حساب بنكي  ↢ تلغي حسابك البنكي\n\n- تحويل ↢ تطلب رقم حساب الشخص وتحول له فلوس\n\n- حسابي  ↢ يطلع لك رقم حسابك عشان تعطيه للشخص اللي بيحول لك\n\n- فلوسي ↢ يعلمك كم فلوسك\n\n- راتب ↢ يعطيك راتب كل ١٠ دقائق\n\n- بخشيش ↢ يعطيك بخشيش كل ١٠ دقايق\n\n- زرف ↢ تزرف فلوس اشخاص كل ١٠ دقايق\n\n- استثمار ↢ تستثمر بالمبلغ اللي تبيه مع نسبة ربح مضمونه من ١٪؜ الى ١٥٪؜\n\n- حظ ↢ تلعبها بأي مبلغ ياتدبله ياتخسره انت وحظك\n\n- مضاربه ↢ تضارب بأي مبلغ تبيه والنسبة من ٩٠٪؜ ال -٩٠٪؜ انت وحظك\n\n- توب الفلوس ↢ يطلع توب اكثر ناس معهم فلوس بكل القروبات\n\n- توب الحراميه ↢ يطلع لك اكثر ناس زرفوا","md",true)
+LuaTele.sendText(msg.chat_id,msg.id,"- اوامر بنك مكس\n\n- انشاء حساب بنكي  ↢ تسوي حساب وتقدر تحول فلوس مع مزايا ثانيه\n\n- مسح حساب بنكي  ↢ تلغي حسابك البنكي\n\n- تحويل ↢ تطلب رقم حساب الشخص وتحول له فلوس\n\n- حسابي  ↢ يطلع لك رقم حسابك عشان تعطيه للشخص اللي بيحول لك\n\n- فلوسي ↢ يعلمك كم فلوسك\n\n- راتب ↢ يعطيك راتب كل ١٠ دقائق\n\n- بخشيش ↢ يعطيك بخشيش كل ١٠ دقايق\n\n- زرف ↢ تزرف فلوس اشخاص كل ١٠ دقايق\n\n- استثمار ↢ تستثمر بالمبلغ اللي تبيه مع نسبة ربح مضمونه من ١٪؜ الى ١٥٪؜\n\n- حظ ↢ تلعبها بأي مبلغ ياتدبله ياتخسره انت وحظك\n\n- مضاربه ↢ تضارب بأي مبلغ تبيه والنسبة من ٩٠٪؜ ال -٩٠٪؜ انت وحظك\n\n- توب الفلوس ↢ يطلع توب اكثر ناس معهم فلوس بكل القروبات\n\n- توب الحراميه ↢ يطلع لك اكثر ناس زرفوا","md",true)
 end
 if text == 'حظ' then
 if Redis:get(Lotus.."nnooo" .. msg.sender.user_id) then  
@@ -16426,7 +16191,7 @@ if not msg.ControllerBot then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص⦗ '..Controller_Num(1)..' ⦘* ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/'..Redis:get(Lotus..'Lotus:Channel:Join')}, },}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/'..Redis:get(itsLotus..'Lotus:Channel:Join')}, },}}
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
  ioserver = io.popen([[
