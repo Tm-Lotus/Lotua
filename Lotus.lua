@@ -20753,11 +20753,4 @@ end
 Redis:sadd(Lotus.."eza3a",Token.."&"..Lotus)
 Redis:set("@"..UserBot,Lotus.."&".."@"..UserBot.."$@"..UserSudo.."+"..Token)
 luatele.run(CallBackLua)
- end
-end
-end
-end
-Redis:sadd(Lotus.."eza3a",Token.."&"..Lotus)
-Redis:set("@"..UserBot,Lotus.."&".."@"..UserBot.."$@"..UserSudo.."+"..Token)
-luatele.run(CallBackLua)
  
