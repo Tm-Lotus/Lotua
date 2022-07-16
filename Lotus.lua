@@ -11700,43 +11700,37 @@ t = v.."\n"
 end
 send(msg_chat_id,msg_id,t,"md",true) 
 end 
-if text == 'عبدو' or text == 'ميشو' or text == 'فوديكا' or text == 'مبرمج السورس' then  
+if text ==  مارك  or text ==  مبرمج السورس  or text ==  عبدو  then  
 local UserId_Info = LuaTele.searchPublicChat("CR_YY")
 if UserId_Info.id then
-local  ban = LuaTele.getUser(UserId_Info.id)
-local  bain = LuaTele.getUserFullInfo(UserId_Info.id)
-if  bain.bio then
-Bio =  bain.bio
+local UserInfo = LuaTele.getUser(UserId_Info.id)
+local InfoUser = LuaTele.getUserFullInfo(UserId_Info.id)
+if InfoUser.bio then
+Bio = InfoUser.bio
 else
-Bio = 'لا يوجد'
-end
-if ban.first_name then
-Creat = " "..ban.first_name.." "
-else
-Creat = " Developers Bot \n"
+Bio =  لا يوجد 
 end
 local photo = LuaTele.getUserProfilePhotos(UserId_Info.id)
 if photo.total_count > 0 then
-local TestText = "◍ معلومات المبرمج\n◍ *الاسم* :  [".. ban.first_name.."](tg://user?id="..UserId_Info.id..")\n◍  *البايو* : [ "..Bio.." ]"
+local TestText = "◍ معلومات المبرمج\n\n◍ *الاسم* : ["..UserInfo.first_name.."](tg://user?id="..UserId_Info.id..")\n\n◍ *البايو* : ["..Bio.."]"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = Creat, url = "https://t.me/"..ban.username..""},
+{text =  ❴ # مأرك _ بآيع _آلكل ❵ , url = "https://t.me/CR_YY"}
 },
 }
 local msg_id = msg.id/2097152/0.5 
- https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
+return https.request("https://api.telegram.org/bot"..Token.. /sendPhoto?chat_id= ..msg.chat_id.. &caption= ..URL.escape(TestText).. &photo= ..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.. &reply_to_message_id= ..msg_id.. &parse_mode=markdown&disable_web_page_preview=true&reply_markup= ..JSON.encode(keyboardd))
 else
-local TestText = "◍ معلومات المبرمج\n◍ الاسم : [".. ban.first_name.."](tg://user?id="..UserId_Info.id..")\n◍ البايو : ["..Bio.."]"
+local TestText = "◍ معلومات المبرمج\n\n◍ *الاسم* : ["..UserInfo.first_name.."](tg://user?id="..UserId_Info.id..")\n\n◍ *البايو* : ["..Bio.."]"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = Creat, url = "https://t.me/"..ban.username..""},
+{text =  ❴ # مأرك _ بآيع _آلكل ❵ , url = "https://t.me/CR_YY"}
 },
 }
 local msg_id = msg.id/2097152/0.5 
- https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
-end
+return https.request("https://api.telegram.org/bot"..Token.. /sendMessage?chat_id=  .. msg.chat_id ..  &text=  .. URL.escape(TestText).."&reply_to_message_id="..msg_id.. &parse_mode=markdown&disable_web_page_preview=true&reply_markup= ..JSON.encode(keyboardd))
 end
 end
 if text == 'هارلين' or text == 'محمد' or text == 'كابوس' or text == 'المبرمج' then  
