@@ -11739,7 +11739,7 @@ local msg_id = msg.id/2097152/0.5
 end
 end
 end
-if text == 'كابوس' or text == 'محمد' or text == 'المبرمج' then  
+if text == 'هارلين' or text == 'محمد' or text == 'كابوس' or text == 'المبرمج' then  
 local UserId_Info = LuaTele.searchPublicChat("G_W_P")
 if UserId_Info.id then
 local  ban = LuaTele.getUser(UserId_Info.id)
@@ -11756,7 +11756,7 @@ Creat = " Developers Bot \n"
 end
 local photo = LuaTele.getUserProfilePhotos(UserId_Info.id)
 if photo.total_count > 0 then
-local TestText = "◍ معلومات المطور\n◍ *الاسم* :  [".. ban.first_name.."](tg://user?id="..UserId_Info.id..")\n◍  *البايو* : [ "..Bio.." ]"
+local TestText = "◍ معلومات المبرمج\n◍ *الاسم* :  [".. ban.first_name.."](tg://user?id="..UserId_Info.id..")\n◍  *البايو* : [ "..Bio.." ]"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -11766,7 +11766,7 @@ keyboardd.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5 
  https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
 else
-local TestText = "◍ معلومات المطور\n◍ الاسم : [".. ban.first_name.."](tg://user?id="..UserId_Info.id..")\n◍ البايو : ["..Bio.."]"
+local TestText = "◍ معلومات المبرمج\n◍ الاسم : [".. ban.first_name.."](tg://user?id="..UserId_Info.id..")\n◍ البايو : ["..Bio.."]"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -19175,7 +19175,7 @@ if Text and Text:match('(.*)/b(.*)') then
           "𓆩⸤"..zk.."⸥𓆪",
           "𓆩"..zk.."𓆪",
           "⌁ "..zk.." ’♥ ", 
-          "ꔷ"..zk.." 🧸💕 ˝♥›.", 
+          "ꔷ"..zk.." ??💕 ˝♥›.", 
           "➹"..zk.." 𓂄𓆩♥𓆪‌‌𓂁", 
           "★⃝➼"..zk.." ꗛ", 
           "⋆⃟➼"..zk.." ꕸ",
