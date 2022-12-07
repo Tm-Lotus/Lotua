@@ -148,12 +148,12 @@ end
 if Redis:get(Lotus..'chsource') then
 chsource = Redis:get(Lotus..'chsource')
 else
-chsource = "U6_6R"
+chsource = "R_O0_N"
 end
 if Redis:get(Lotus..'chdevolper') then
 chdevolper = Redis:get(Lotus..'chdevolper')
 else 
-chdevolper = "U6_6Q"
+chdevolper = "C6_6Y"
 end
 
 function chat_type(ChatId)
@@ -215,7 +215,7 @@ return kk
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,5506239117,5125194988,5391427,5241548}  
+local ListSudos ={Sudo_Id,5132601356,51251949,5834576278,5241548}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -234,11 +234,11 @@ Manger = Redis:sismember(Lotus.."Manger:Group"..ChatId,UserId)
 Admin = Redis:sismember(Lotus.."Admin:Group"..ChatId,UserId)
 Special = Redis:sismember(Lotus.."Special:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 5506239117 then
+if UserId == 5132601356 then
 Status = 'مبرمج السورس'
-elseif UserId == 5125194988 then
+elseif UserId == 51251949 then
 Status = 'مبرمج السورس'
-elseif UserId == 5391427 then
+elseif UserId == 5834576278 then
 Status = 'مطور السورس'
 elseif UserId == 5241548 then
 Status = 'مطور جوست'
@@ -817,11 +817,11 @@ Manger = Redis:sismember(Lotus.."Manger:Group"..ChatId,UserId)
 Admin = Redis:sismember(Lotus.."Admin:Group"..ChatId,UserId)
 Special = Redis:sismember(Lotus.."Special:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 5506239117 then
+if UserId == 5132601356 then
 Status = true
-elseif UserId == 5125194988 then
+elseif UserId == 51251949 then
 Status = true
-elseif UserId == 5391427 then
+elseif UserId == 5834576278 then
 Status = true
 elseif UserId == 5241548 then
 Status = true
@@ -863,11 +863,11 @@ Manger = Redis:sismember(Lotus.."Manger:Group"..ChatId,UserId)
 Admin = Redis:sismember(Lotus.."Admin:Group"..ChatId,UserId)
 Special = Redis:sismember(Lotus.."Special:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 5506239117 then
+if UserId == 5132601356 then
 Status = true
-elseif UserId == 5125194988 then
+elseif UserId == 51251949 then
 Status = true
-elseif UserId == 5391427 then
+elseif UserId == 5834576278 then
 Status = true
 elseif UserId == 5241548 then
 Status = true
@@ -981,7 +981,7 @@ if chh then
 local url = https.request("https://api.telegram.org/bot"..Token.."/getchatmember?chat_id="..chh.."&user_id="..msg.sender.user_id)
 data = json:decode(url)
 if data.result.status == "left" or data.result.status == "kicked" then
-if tonumber(msg.sender.user_id) ~= tonumber(5506239117) then
+if tonumber(msg.sender.user_id) ~= tonumber(5132601356) then
 JoinChannel = false 
 end
 end
@@ -989,21 +989,21 @@ end
 return JoinChannel
 end
 function otlop(msg)
-U6_6R = true
+R_O0_N = true
 local chh = Redis:get("ch:3am")
 if chh then
 local url = https.request("https://api.telegram.org/bot5120205136:AAH483WyZWuxlCSGc8OMLtf_FL1NTmwVQ0o/getchatmember?chat_id="..chh.."&user_id="..msg.sender.user_id)
 data = json:decode(url)
 if data.ok == false then
-U6_6R = false
+R_O0_N = false
 end
 if data and data.result and data.result.status  == "left" or data.result.status == "kicked" then
-if tonumber(msg.sender.user_id) ~= tonumber(5506239117) then
-U6_6R = false 
+if tonumber(msg.sender.user_id) ~= tonumber(5132601356) then
+R_O0_N = false 
 end
 end
 end
-return U6_6R
+return R_O0_N
 end
 function File_Bot_Run(msg,data)  
 local msg_chat_id = msg.chat_id
@@ -1047,13 +1047,13 @@ return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id}),LuaTele.setChatMemberSt
 elseif Statusrestricted(msg.chat_id,msg.sender.user_id).SilentGroup == true then
 return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 end
-if tonumber(msg.sender.user_id) == 5506239117 then
+if tonumber(msg.sender.user_id) == 5132601356 then
 msg.Name_Controller = 'مبرمج السورس'
 msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 5125194988 then
+elseif tonumber(msg.sender.user_id) == 51251949 then
 msg.Name_Controller = 'مطور السورس '
 msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 5391427 then
+elseif tonumber(msg.sender.user_id) == 5834576278 then
 msg.Name_Controller ='  مطور السورس'  
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 5241548 then
@@ -1323,7 +1323,7 @@ keyboard.inline_keyboard = {
 {text = ' تفعيل ', callback_data = msg.sender.user_id..'/onlinebott'..msg_chat_id},
 },
 {
-{text = 'قناه السورس', url = 't.me/U6_6R'},
+{text = 'قناه السورس', url = 't.me/R_O0_N'},
 }
 }
 local rep = msg.id/2097152/0.5
@@ -2831,7 +2831,7 @@ end
 end   
 Get_Json = Get_Json..'],'
 end
-Get_Json = Get_Json..'"Dev":"U6_6Q"}'
+Get_Json = Get_Json..'"Dev":"C6_6Y"}'
 end
 Get_Json = Get_Json..'}}'
 local File = io.open('./'..UserBot..'.json', "w")
@@ -6160,13 +6160,13 @@ end
 if Controller(msg_chat_id,UserId) == 'المطور الاساسي' then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على { "..Controller(msg_chat_id,UserId).." } *","md",true)  
 end
-if UserId == "5506239117" then
+if UserId == "5132601356" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على مبرمج السورس*","md",true)  
 end
-if UserId == "5125194988" then
+if UserId == "51251949" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور محمد*","md",true)  
 end
-if UserId == "5391427" then
+if UserId == "5834576278" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور المهلك*","md",true)  
 end
 if UserId == "5241548" then
@@ -6203,13 +6203,13 @@ local UserId = text:match('^كتم عام (%d+)$')
 if not msg.Devss then
 return send(msg_chat_id,msg_id,'\n*◍ هذا الامر يخص  '..Controller_Num(2)..' * ',"md",true)  
 end
-if UserId == "5506239117" then
+if UserId == "5132601356" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على مبرمج السورس*","md",true)  
 end
-if UserId == "5125194988" then
+if UserId == "51251949" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور محمد*","md",true)  
 end
-if UserId == "5391427" then
+if UserId == "5834576278" then
 return send(msg_chat_id,msg_id,"\n*◍ عذرآ لا تستطيع استخدام الامر على المطور المهلك*","md",true)  
 end
 if UserId == "5241548" then
@@ -10087,7 +10087,7 @@ if not msg.Manger then
 return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(6)..' * ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
 return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Lotus.."List:Manager"..msg_chat_id.."")
@@ -10113,7 +10113,7 @@ if not msg.Manger then
 return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(6)..' * ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
 return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Lotus.."List:Manager"..msg_chat_id.."")
@@ -10166,7 +10166,7 @@ if text == ("مسح الردود الانلاين") then
   return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(6)..' * ',"md",true)  
   end
   if ChannelJoin(msg) == false then
-  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
   return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
   end
   local list = Redis:smembers(Lotus.."List:Manager:inline"..msg_chat_id.."")
@@ -10368,7 +10368,7 @@ if text == "حذف رد انلاين" then
   return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(7)..' * ',"md",true)  
   end
   if ChannelJoin(msg) == false then
-  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
   return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
   end
   local reply_markup = LuaTele.replyMarkup{
@@ -10409,7 +10409,7 @@ if text == ("الردود الانلاين") then
   return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(6)..' * ',"md",true)  
   end
   if ChannelJoin(msg) == false then
-  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
   return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
   end
   local list = Redis:smembers(Lotus.."List:Manager:inline"..msg_chat_id.."")
@@ -11117,7 +11117,7 @@ if not msg.Admin then
 return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(7)..' * ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
 return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local reply_markup = LuaTele.replyMarkup{
@@ -11232,7 +11232,7 @@ if not msg.ControllerBot then
 return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(1)..' * ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
 return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Lotus.."List:Rd:Sudo")
@@ -11258,7 +11258,7 @@ if not msg.ControllerBot then
 return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  '..Controller_Num(1)..' * ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
 return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Lotus.."List:Rd:Sudo")
@@ -11700,8 +11700,8 @@ t = v.."\n"
 end
 send(msg_chat_id,msg_id,t,"md",true) 
 end 
-if text == 'عبدو' or text == 'بوده' or text == 'فوديكا' or text == 'مبرمج السورس' then  
-local UserId_Info = LuaTele.searchPublicChat("U6_6Q")
+if text == 'عبدو' or text == 'بوده' or text == 'باريس' or text == 'مبرمج السورس' then  
+local UserId_Info = LuaTele.searchPublicChat("C6_6Y")
 if UserId_Info.id then
 local  ban = LuaTele.getUser(UserId_Info.id)
 local  bain = LuaTele.getUserFullInfo(UserId_Info.id)
@@ -11739,8 +11739,8 @@ local msg_id = msg.id/2097152/0.5
 end
 end
 end
-if text == 'كابوس' or text == 'محمد' or text == 'المبرمج' then  
-local UserId_Info = LuaTele.searchPublicChat("G_W_P")
+if text == 'سامح' or text == 'رونالدو' or text == 'المبرمج' then  
+local UserId_Info = LuaTele.searchPublicChat("R0_ON")
 if UserId_Info.id then
 local  ban = LuaTele.getUser(UserId_Info.id)
 local  bain = LuaTele.getUserFullInfo(UserId_Info.id)
@@ -11813,7 +11813,7 @@ Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'Delete Telegram',url="https://my.telegram.org/auth?to=delete"},{text = 'Delete Bot ',url="https://t.me/LC6BOT"}},
-{{text = 'Delete Instagram',url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"},{text = 'Delete Snapchat',url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}},{{text= '‹ Source Lotus ›',url="https://t.me/U6_6R"}}
+{{text = 'Delete Instagram',url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"},{text = 'Delete Snapchat',url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}},{{text= '‹ Source Lotus ›',url="https://t.me/R_O0_N"}}
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/NNAON/474&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -12084,11 +12084,11 @@ end
 end
 
 if text == "انا مين" then
-if msg.sender.user_id == tonumber(5506239117) then
+if msg.sender.user_id == tonumber(5132601356) then
 send(msg_chat_id,msg_id,"◍ انت مبرمج السورس يقلبي","md",true)
-elseif msg.sender.user_id == tonumber(5125194988) then
+elseif msg.sender.user_id == tonumber(51251949) then
 send(msg_chat_id,msg_id,"◍ انت مطور السورس يقلبي","md",true)
-elseif msg.sender.user_id == tonumber(5391427) then
+elseif msg.sender.user_id == tonumber(5834576278) then
 send(msg_chat_id,msg_id,"◍ انت مطور السورس يقلبي","md",true)
 elseif msg.sender.user_id == tonumber(5241548) then
 send(msg_chat_id,msg_id,"◍ انت مطور جوست يقلبي","md",true)
@@ -12129,7 +12129,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {{text = 'ترجمه الي العربية', data = msg.sender.user_id..'toar'},{text = 'ترجمه الي الانجليزية', data = msg.sender.user_id..'toen'}},
-{{text = ' قناه السورس', url = "https://t.me/U6_6R"}},
+{{text = ' قناه السورس', url = "https://t.me/R_O0_N"}},
 }
 }
 return send(msg_chat_id,msg_id, [[*
@@ -12619,7 +12619,7 @@ if text == ("مسح الردود الانلاين العامه") then
   return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  المطور الثانوي * ',"md",true)  
   end
   if ChannelJoin(msg) == false then
-  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
   return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
   end
   local list = Redis:smembers(Lotus.."List:Manager:inline3am")
@@ -12845,7 +12845,7 @@ if text == "حذف رد انلاين عام" then
   return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  المطور الثانوي * ',"md",true)  
   end
   if ChannelJoin(msg) == false then
-  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
   return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
   end
   local reply_markup = LuaTele.replyMarkup{
@@ -12865,7 +12865,7 @@ if text == ("الردود الانلاين العامه") then
   return send(msg_chat_id,msg_id,'\n*◍ هاذا الامر يخص  المطور الثانوي * ',"md",true)  
   end
   if ChannelJoin(msg) == false then
-  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/U6_6R'}, },}}
+  local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/R_O0_N'}, },}}
   return send(msg.chat_id,msg.id,'*\n◍ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
   end
   local list = Redis:smembers(Lotus.."List:Manager:inline3am")
@@ -12902,7 +12902,7 @@ if text then
 if text:match("^بحث (.*)$") then
 local search = text:match("^بحث (.*)$")
 local json = json:decode(http.request("http://159.223.13.231/oda/yt?tx="..URL.escape(search)..""))
-local datar = {data = {{text = "قناه السورس" , url = 'http://t.me/U6_6R'}}}
+local datar = {data = {{text = "قناه السورس" , url = 'http://t.me/R_O0_N'}}}
 for i = 1,10 do
 title = json[i].title
 link = json[i].id
@@ -13230,11 +13230,11 @@ video = "https://t.me/PvNova/552"
 local T =[[
 ◍ Welcome To Source Lotus  › 
 
-◍ Files : [ Channel ›](https://t.me/iNFLotus)
+◍ Files : [ Channel ›](https://t.me/iNFLotas)
 
-◍ TwisL : [ Dev Lotus ›](https://t.me/DavLotus)
+◍ TwisL : [ Dev Lotus ›](https://t.me/DavLotas)
 
-◍ Channel : [ Team Lotus ›](https://t.me/U6_6R)
+◍ Channel : [ Team Lotus ›](https://t.me/R_O0_N)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13242,7 +13242,7 @@ keyboard.inline_keyboard = {
 {text = '◍ Developer Bot ◍', url = 't.me/'..chdevolper..''}, 
 },
 {
-{text = '◍ Android', url = "https://t.me/U6_6Q"},{text = 'Mohamed ◍', url = "https://t.me/G_W_P"}
+{text = '◍ paris', url = "https://t.me/C6_6Y"},{text = 'ronaldo ◍', url = "https://t.me/R0_ON"}
 },
 {
 {text = '◍ Source Lotus ◍', url = 't.me/'..chsource..''}, 
@@ -13673,7 +13673,7 @@ end
 end
 if text == "سمايلات" or text == "سمايل" then
 if Redis:get(Lotus.."Status:Games"..msg.chat_id) then
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","🥐","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","🎫","🎗","🏵","🎖","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","??","🚜","⚔","🛡","🔮","🌡","💣","◍","📍","📓","📗","📂","📅","📪","📫","◍","📭","⏰","📺","🎚","☎️","📡"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","🥐","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","🎫","🎗","🏵","🎖","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","??","🚜","⚔","🛡","🔮","🌡","💣","◍","📍","📓","📗","📂","📅","📪","📫","◍","📭","⏰","📺","🎚","☎️","??"}
 SM = Random[math.random(#Random)]
 Redis:set(Lotus.."Game:Smile"..msg.chat_id,SM)
 return send(msg_chat_id,msg_id,"◍اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}","md",true)  
@@ -15488,10 +15488,10 @@ local bain = LuaTele.getUser(msg.sender.user_id)
 if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*◍ انت عبيط يبني حد يموت نفسو*","md",true)  
 end
-if tonumber(Message_Reply.sender.user_id) == tonumber(5506239117) then
+if tonumber(Message_Reply.sender.user_id) == tonumber(5132601356) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*◍ انت بتعمل اي يعرص ده مبرمج السورس*","md",true)  
 end
-if tonumber(Message_Reply.sender.user_id) == tonumber(5391427) then
+if tonumber(Message_Reply.sender.user_id) == tonumber(5834576278) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*◍ انت بتعمل اي يعرص ده مطور السورس*","md",true)  
 end
 if tonumber(Message_Reply.sender.user_id) == tonumber(WOLF) then
@@ -15518,10 +15518,10 @@ local bain = LuaTele.getUser(msg.sender.user_id)
 if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*◍ انت عبيط يبني حد يتف علي نفسو*","md",true)  
 end
-if tonumber(Message_Reply.sender.user_id) == tonumber(5506239117) then
+if tonumber(Message_Reply.sender.user_id) == tonumber(5132601356) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*◍ انت بتعمل اي يعرص ده مبرمج السورس*","md",true)  
 end
-if tonumber(Message_Reply.sender.user_id) == tonumber(5391427) then
+if tonumber(Message_Reply.sender.user_id) == tonumber(5834576278) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*◍ انت بتعمل اي يعرص ده مطورالسورس*","md",true)  
 end
 if tonumber(Message_Reply.sender.user_id) == tonumber(WOLF) then
@@ -17101,7 +17101,7 @@ if data and data.luatele and data.luatele == "updateNewInlineQuery" then
 
 local Text = data.query 
 if Text == '' then
-local input_message_content = {message_text = "◍ اهلا بك\n◍ لارسال الهمسه اكتب يوزر البوت + الهمسه + يوزر العضو اللي هتعمله همسه \n◍ مثال  @TsNoBot  هلا @U6_6Q"}	
+local input_message_content = {message_text = "◍ اهلا بك\n◍ لارسال الهمسه اكتب يوزر البوت + الهمسه + يوزر العضو اللي هتعمله همسه \n◍ مثال  @TsNoBot  هلا @C6_6Y"}	
 local resuult = {{
 type = 'article',
 id = math.random(1,64),
@@ -17109,12 +17109,12 @@ title = 'اضغط هنا لمعرفه كيفيه ارسال الهمسه',
 input_message_content = input_message_content,
 reply_markup = {
 inline_keyboard ={
-{{text ="قناه السورس", url= "https://t.me/U6_6R"}},
+{{text ="قناه السورس", url= "https://t.me/R_O0_N"}},
 }
 },
 },
 }
-https.request("https://api.telegram.org/bot"..Token..'/answerInlineQuery?inline_query_id='..data.id..'&switch_pm_text=@U6_6Q&switch_pm_parameter=start&results='..JSON.encode(resuult))
+https.request("https://api.telegram.org/bot"..Token..'/answerInlineQuery?inline_query_id='..data.id..'&switch_pm_text=@C6_6Y&switch_pm_parameter=start&results='..JSON.encode(resuult))
 end
 if Text == "ترجمه" or Text == "ترجمة" then
 local input_message_content = {message_text = "◍ لاستخدام الترجمه انلاين اكتب يوزر البوت + en او ar علي حس لغتك وبعد كدا الكلمه \n◍ مثال : \n◍ [@TsNoBot] en احبك ", parse_mode = 'Markdown'}	
@@ -17130,7 +17130,7 @@ inline_keyboard ={
 },
 },
 }
-https.request("https://api.telegram.org/bot"..Token..'/answerInlineQuery?inline_query_id='..data.id..'&switch_pm_text=@U6_6Q&switch_pm_parameter=start&results='..JSON.encode(resuult))
+https.request("https://api.telegram.org/bot"..Token..'/answerInlineQuery?inline_query_id='..data.id..'&switch_pm_text=@C6_6Y&switch_pm_parameter=start&results='..JSON.encode(resuult))
 end
 if Text and Text:match("en (.*)") or Text:match("En (.*)") then
 local tr = Text:match("en (.*)") or Text:match("En (.*)")
@@ -17657,14 +17657,14 @@ if Redis:get(Lotus..'Set:array'..IdUser..':'..ChatId) == 'true1' then
 Redis:del(Lotus..'Set:array'..IdUser..':'..ChatId)
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'قناه السورس',url='http://t.me/U6_6R'}},
+{{text = 'قناه السورس',url='http://t.me/R_O0_N'}},
 }
 local msg_idd = Msg_id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatId..'&text='..URL.escape(" *◍تم حفظ الردود بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 else
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'قناه السورس',url='http://t.me/U6_6R'}},
+{{text = 'قناه السورس',url='http://t.me/R_O0_N'}},
 }
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatId..'&text='..URL.escape(" *◍تم تنفيذ الامر سابقا*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -17743,7 +17743,7 @@ send(Sudo_Id,0,'*\n◍ تم تفعيل مجموعه جديده \n◍من قام 
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'قناه السورس', url="t.me/U6_6R"},
+{text = 'قناه السورس', url="t.me/R_O0_N"},
 },
 }
 local txxt = "◍ تم تفعيل المجموعه و ترقيه {"..y.."} ادمنيه \n⌯︙تم ترقية المالك "
