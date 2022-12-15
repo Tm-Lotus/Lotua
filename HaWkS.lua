@@ -9,7 +9,7 @@ Redis = require('libs/redis').connect('127.0.0.1', 6379)
 http  = require("socket.http")
 https   = require("ssl.https")
 SshId = io.popen("echo $SSH_CLIENT ︙ awk '{ print $1}'"):read('*a')
-Merotele = require 'MeroTele'
+ LuaTele = require ' LuaTele'
 local FileInformation = io.open("./Information.lua","r")
 if not FileInformation then
 if not Redis:get(SshId.."Info:Redis:Token") then
@@ -91,7 +91,7 @@ Token = Information.Token
 UserBot = Information.UserBot
 hawks = Token:match("(%d+)")
 os.execute('sudo rm -fr .CallBack-Bot/'..hawks)
-merolua = Merotele.set_config{api_id=2692371,api_hash='fe85fff033dfe0f328aeb02b4f784930',session_name=hawks,token=Token}
+merolua =  LuaTele.set_config{api_id=2692371,api_hash='fe85fff033dfe0f328aeb02b4f784930',session_name=hawks,token=Token}
 function var(value)  
 print(serpent.block(value, {comment=false}))   
 end 
@@ -159,7 +159,7 @@ Originators = Redis:sismember(hawks.."HaWkS:Originators:Group"..ChatId,UserId)
 Managers = Redis:sismember(hawks.."HaWkS:Managers:Group"..ChatId,UserId)
 Addictive = Redis:sismember(hawks.."HaWkS:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(hawks.."HaWkS:Distinguished:Group"..ChatId,UserId)
-StatusMember = merolua.getChatMember(ChatId,UserId).status.Merotele
+StatusMember = merolua.getChatMember(ChatId,UserId).status. LuaTele
 if UserId == 1413037852 then
 Status = 'مطــور السـورس 𖦴'
 elseif UserId == Sudo_Id then  
@@ -873,7 +873,7 @@ Originators = Redis:sismember(hawks.."HaWkS:Originators:Group"..ChatId,UserId)
 Managers = Redis:sismember(hawks.."HaWkS:Managers:Group"..ChatId,UserId)
 Addictive = Redis:sismember(hawks.."HaWkS:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(hawks.."HaWkS:Distinguished:Group"..ChatId,UserId)
-StatusMember = merolua.getChatMember(ChatId,UserId).status.Merotele
+StatusMember = merolua.getChatMember(ChatId,UserId).status. LuaTele
 if UserId == 1413037852 then
 Status = true
 elseif UserId == Sudo_Id then  
@@ -914,7 +914,7 @@ Originators = Redis:sismember(hawks.."HaWkS:Originators:Group"..ChatId,UserId)
 Managers = Redis:sismember(hawks.."HaWkS:Managers:Group"..ChatId,UserId)
 Addictive = Redis:sismember(hawks.."HaWkS:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(hawks.."HaWkS:Distinguished:Group"..ChatId,UserId)
-StatusMember = merolua.getChatMember(ChatId,UserId).status.Merotele
+StatusMember = merolua.getChatMember(ChatId,UserId).status. LuaTele
 if UserId == 1413037852 then
 Status = true
 elseif UserId == Sudo_Id then    
@@ -1058,7 +1058,7 @@ if tonumber(msg.sender_id.user_id) == tonumber(hawks) then
 print('This is reply for Bot')
 return false
 end
-if msg.sender_id.Merotele == "messageSenderChat" then
+if msg.sender_id. LuaTele == "messageSenderChat" then
 if Redis:get(hawks.."HaWkS:Lock:SenderChat"..msg_chat_id) then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
 end
@@ -1129,7 +1129,7 @@ if msg.The_Controller == 1 or msg.The_Controller == 2 or msg.The_Controller == 3
 msg.Distinguished = true
 end
 
-if msg.sender_id.Merotele ~= "messageSenderChat" then
+if msg.sender_id. LuaTele ~= "messageSenderChat" then
 if Statusrestricted(msg.chat_id,msg.sender_id.user_id).KtmAll == true then
 return merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
 elseif Statusrestricted(msg.chat_id,msg.sender_id.user_id).BanAll == true then
@@ -1142,15 +1142,15 @@ end
 end
 if text then
 Redis:incr(hawks.."Num:MssEgeS:Days"..msg.chat_id..os.date("%d")) 
-elseif msg.content.Merotele == "messageChatAddMembers" then
+elseif msg.content. LuaTele == "messageChatAddMembers" then
 Redis:incr(hawks.."Num:AddMempber:Days"..msg.chat_id..os.date("%d")) 
-elseif msg.content.Merotele == "messagePinMessage" then
+elseif msg.content. LuaTele == "messagePinMessage" then
 Redis:incr(hawks.."Num:PinMsg:Days"..msg.chat_id..os.date("%d")) 
-elseif msg.content.Merotele == "messageChatJoinByLink" then
+elseif msg.content. LuaTele == "messageChatJoinByLink" then
 Redis:incr(hawks.."Num:joinlink:Days"..msg.chat_id..os.date("%d")) 
 end
 
-if msg.content.Merotele == "messageChatJoinByLink" and Redis:get(hawks..'HaWkS:Status:joinet'..msg.chat_id) == 'true' then
+if msg.content. LuaTele == "messageChatJoinByLink" and Redis:get(hawks..'HaWkS:Status:joinet'..msg.chat_id) == 'true' then
 local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
@@ -1165,15 +1165,15 @@ end
 if (Redis:get(hawks..'HaWkS:All:FilterText'..msg_chat_id..':'..msg.sender_id.user_id) == 'DelFilterq') then   
 if text or msg.content.photo or msg.content.animation or msg.content.sticker then
 print('&')
-if msg.content.Merotele == "messagePhoto" then
+if msg.content. LuaTele == "messagePhoto" then
 Filters = 'الصوره'
 Redis:srem(hawks.."HaWkS:All:List:Filter",'photo:'..msg.content.photo.sizes[1].photo.id)  
 Redis:del(hawks.."HaWkS:All:Filter:Group:"..msg.content.photo.sizes[1].photo.id)  
-elseif msg.content.Merotele == "messageAnimation" then
+elseif msg.content. LuaTele == "messageAnimation" then
 Filters = 'المتحركه'
 Redis:srem(hawks.."HaWkS:All:List:Filter",'animation:'..msg.content.animation.animation.id)  
 Redis:del(hawks.."HaWkS:All:Filter:Group:"..msg.content.animation.animation.id)  
-elseif msg.content.Merotele == "messageSticker" then
+elseif msg.content. LuaTele == "messageSticker" then
 Filters = 'الملصق'
 Redis:srem(hawks.."HaWkS:All:List:Filter",'sticker:'..msg.content.sticker.sticker.id)  
 Redis:del(hawks.."HaWkS:All:Filter:Group:"..msg.content.sticker.sticker.id)  
@@ -1191,19 +1191,19 @@ if Redis:get(hawks.."HaWkS:Lock:text"..msg_chat_id) and not msg.Distinguished th
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
 return false
 end 
-if msg.content.Merotele == "messageChatJoinByLink" and not msg.Distinguished then
+if msg.content. LuaTele == "messageChatJoinByLink" and not msg.Distinguished then
 if Redis:get(hawks.."HaWkS:Lock:Join"..msg.chat_id) == "kick" then
 merolua.setChatMemberStatus(msg.chat_id,msg.sender_id.user_id,'banned',0)
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
 return false
 end
 end
-if msg.content.Merotele == "messageChatAddMembers" then -- اضافه اشخاص
+if msg.content. LuaTele == "messageChatAddMembers" then -- اضافه اشخاص
 local Lock_Bots = Redis:get(hawks.."HaWkS:Lock:Bot:kick"..msg_chat_id)
 for k,v in pairs(msg.content.member_user_ids) do
 if tonumber(v) ~= tonumber(hawks) then
 local Info_User = merolua.getUser(v) 
-if Info_User.type.Merotele == "userTypeBot" then
+if Info_User.type. LuaTele == "userTypeBot" then
 if Lock_Bots == "del" and not msg.Managers then
 merolua.setChatMemberStatus(msg.chat_id,v,'banned',0)
 elseif Lock_Bots == "kick" and not msg.Managers then
@@ -1215,11 +1215,11 @@ end
 end
 end
 
-if msg.content.Merotele == "messageChatAddMembers" then
+if msg.content. LuaTele == "messageChatAddMembers" then
 Redis:incr(hawks.."HaWkS:Num:Add:Memp"..msg_chat_id..":"..msg.sender_id.user_id) 
 end
 
-if msg.content.Merotele == "messageChatAddMembers" then -- اضافه اشخاص
+if msg.content. LuaTele == "messageChatAddMembers" then -- اضافه اشخاص
 print('This is Add Membeers ')
 Redis:incr(hawks.."HaWkS:Num:Add:Memp"..msg_chat_id..":"..msg.sender_id.user_id) 
 local AddMembrs = Redis:get(hawks.."HaWkS:Lock:AddMempar"..msg_chat_id) 
@@ -1269,7 +1269,7 @@ end
 end
 end
 end 
-if msg.content.Merotele == "messageChatJoinByLink" or msg.content.Merotele == "messageChatAddMembers" then
+if msg.content. LuaTele == "messageChatJoinByLink" or msg.content. LuaTele == "messageChatAddMembers" then
 if Redis:get(hawks.."HaWkS:Status:Welcome"..msg_chat_id) then
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
 local Get_Chat = merolua.getChat(msg_chat_id)
@@ -1277,7 +1277,7 @@ local Info_Chats = merolua.getSupergroupFullInfo(msg_chat_id)
 local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 local owner = merolua.getUser(v.member_id.user_id)
 local Welcome = Redis:get(hawks.."HaWkS:Welcome:Group"..msg_chat_id)
 if Welcome then 
@@ -1325,7 +1325,7 @@ end end end
 end
 end
 end 
-if not msg.Distinguished and msg.content.Merotele ~= "messageChatAddMembers" and Redis:hget(hawks.."HaWkS:Spam:Group:User"..msg_chat_id,"Spam:User") then 
+if not msg.Distinguished and msg.content. LuaTele ~= "messageChatAddMembers" and Redis:hget(hawks.."HaWkS:Spam:Group:User"..msg_chat_id,"Spam:User") then 
 if tonumber(msg.sender_id.user_id) == tonumber(hawks) then
 return false
 end
@@ -1429,7 +1429,7 @@ end
 print('This is forward')
 return false
 end 
-if msg.content.Merotele == "messagePhoto" or msg.content.Merotele == "messageAnimation" or msg.content.Merotele == "messageSticker" or msg.content.Merotele == "messageVoiceNote" or msg.content.Merotele == "messageVideo" or msg.content.Merotele == "messageAudio" or msg.content.Merotele == "messageVideoNote" then
+if msg.content. LuaTele == "messagePhoto" or msg.content. LuaTele == "messageAnimation" or msg.content. LuaTele == "messageSticker" or msg.content. LuaTele == "messageVoiceNote" or msg.content. LuaTele == "messageVideo" or msg.content. LuaTele == "messageAudio" or msg.content. LuaTele == "messageVideoNote" then
 if not msg.Addictive then
 if Redis:get(hawks.."HaWkS:Lock:AlUasat"..msg_chat_id) then 
 return merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1437,7 +1437,7 @@ end
 end
 end
 
-if msg.reply_markup and msg.reply_markup.Merotele == "replyMarkupInlineKeyboard" then
+if msg.reply_markup and msg.reply_markup. LuaTele == "replyMarkupInlineKeyboard" then
 if not msg.Distinguished then  -- الكيبورد
 local Keyboard_Group = Redis:get(hawks.."HaWkS:Lock:Keyboard"..msg_chat_id)
 if Keyboard_Group == "del" then
@@ -1496,7 +1496,7 @@ end
 print('This is location')
 end 
 
-if msg.content.entities and msg..content.entities[0] and msg.content.entities[0].type.Merotele == "textEntityTypeUrl" and not msg.Distinguished then  -- الماركداون
+if msg.content.entities and msg..content.entities[0] and msg.content.entities[0].type. LuaTele == "textEntityTypeUrl" and not msg.Distinguished then  -- الماركداون
 local Markduan_Gtoup = Redis:get(hawks.."HaWkS:Lock:Markdaun"..msg_chat_id)
 if Markduan_Gtoup == "del" then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1569,17 +1569,17 @@ end
 end
 print('This is games')
 end 
-if msg.content.Merotele == "messagePinMessage" then -- رساله التثبيت
+if msg.content. LuaTele == "messagePinMessage" then -- رساله التثبيت
 local Pin_Msg = Redis:get(hawks.."HaWkS:lockpin"..msg_chat_id)
 if Pin_Msg and not msg.Managers then
 if Pin_Msg:match("(%d+)") then 
 local PinMsg = merolua.pinChatMessage(msg_chat_id,Pin_Msg,true)
-if PinMsg.Merotele~= "ok" then
+if PinMsg. LuaTele~= "ok" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙لا استطيع تثبيت الرسائل ليست لديه صلاحيه","md",true)
 end
 end
 local UnPin = merolua.unpinChatMessage(msg_chat_id) 
-if UnPin.Merotele ~= "ok" then
+if UnPin. LuaTele ~= "ok" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙لا استطيع الغاء تثبيت الرسائل ليست لديه صلاحيه","md",true)
 end
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙التثبيت معطل من قبل المدراء ","md",true)
@@ -1587,7 +1587,7 @@ end
 print('This is message Pin')
 end 
 
-if msg.content.Merotele == "messageChatJoinByLink" then
+if msg.content. LuaTele == "messageChatJoinByLink" then
 if Redis:get(hawks.."HaWkS:Lock:Join"..msg.chat_id) == "kick" then
 merolua.setChatMemberStatus(msg.chat_id,msg.sender_id.user_id,'banned',0)
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1595,7 +1595,7 @@ return false
 end
 end
 
-if msg.content.Merotele == "messageChatDeleteMember" and not Redis:get(hawks.."spammkick"..msg.chat_id) then 
+if msg.content. LuaTele == "messageChatDeleteMember" and not Redis:get(hawks.."spammkick"..msg.chat_id) then 
 if msg.sender_id.user_id ~= hawks then
 Num_Msg_Max = 4
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
@@ -1748,7 +1748,7 @@ end
 end 
 end
 
-if msg.content.Merotele == "messagePhoto" and Redis:get(hawks..'welcom_ph:witting'..msg.sender_id.user_id) then  -- الصور
+if msg.content. LuaTele == "messagePhoto" and Redis:get(hawks..'welcom_ph:witting'..msg.sender_id.user_id) then  -- الصور
 if msg.content.photo.sizes[1].photo.remote.id then
 idPhoto = msg.content.photo.sizes[1].photo.remote.id
 elseif msg.content.photo.sizes[2].photo.remote.id then
@@ -1787,7 +1787,7 @@ return merolua.sendText(msg.chat_id, msg.id, "تم حذف الصوره", "md")
 end
 
 
-if msg.content.Merotele == "messageContact" and not msg.Distinguished then  -- الجهات
+if msg.content. LuaTele == "messageContact" and not msg.Distinguished then  -- الجهات
 local Contact_Group = Redis:get(hawks.."HaWkS:Lock:Contact"..msg_chat_id)
 if Contact_Group == "del" then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1824,7 +1824,7 @@ end
 print('This is Contact')
 end 
 
-if msg.content.Merotele == "messageVideoNote" and not msg.Distinguished then  -- بصمه الفيديو
+if msg.content. LuaTele == "messageVideoNote" and not msg.Distinguished then  -- بصمه الفيديو
 local Videonote_Group = Redis:get(hawks.."HaWkS:Lock:Unsupported"..msg_chat_id)
 if Videonote_Group == "del" then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1861,7 +1861,7 @@ end
 print('This is video Note')
 end 
 
-if msg.content.Merotele == "messageDocument" and not msg.Distinguished then  -- الملفات
+if msg.content. LuaTele == "messageDocument" and not msg.Distinguished then  -- الملفات
 local Document_Group = Redis:get(hawks.."HaWkS:Lock:Document"..msg_chat_id)
 if Document_Group == "del" then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1898,7 +1898,7 @@ end
 print('This is Document')
 end 
 
-if msg.content.Merotele == "messageAudio" and not msg.Distinguished then  -- الملفات الصوتيه
+if msg.content. LuaTele == "messageAudio" and not msg.Distinguished then  -- الملفات الصوتيه
 local Audio_Group = Redis:get(hawks.."HaWkS:Lock:Audio"..msg_chat_id)
 if Audio_Group == "del" then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -1935,7 +1935,7 @@ end
 print('This is Audio')
 end 
 
-if msg.content.Merotele == "messageVideo" then  -- الفيديو
+if msg.content. LuaTele == "messageVideo" then  -- الفيديو
 if Redis:sismember(hawks.."HaWkS:Distinguishedall:Group",msg.sender_id.user_id) then
 testmod = true
 elseif msg.Distinguished then
@@ -1990,7 +1990,7 @@ return merolua.sendText(msg_chat_id,msg_id,Teext..'◉︙ممنوع ارسال �
 end
 end
 end
-if msg.content.Merotele == "messageVoiceNote" and not msg.Distinguished then  -- البصمات
+if msg.content. LuaTele == "messageVoiceNote" and not msg.Distinguished then  -- البصمات
 local Voice_Group = Redis:get(hawks.."HaWkS:Lock:vico"..msg_chat_id)
 if Voice_Group == "del" then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -2027,7 +2027,7 @@ end
 print('This is Voice')
 end 
 
-if msg.content.Merotele == "messageSticker" then  -- الملصقات
+if msg.content. LuaTele == "messageSticker" then  -- الملصقات
 if Redis:sismember(hawks.."HaWkS:Distinguishedall:Group",msg.sender_id.user_id) then
 testmod = true
 elseif msg.Distinguished then
@@ -2111,7 +2111,7 @@ end
 print('This is viabot')
 end
 
-if msg.content.Merotele == "messageAnimation"  then  -- المتحركات
+if msg.content. LuaTele == "messageAnimation"  then  -- المتحركات
 if Redis:sismember(hawks.."HaWkS:Distinguishedall:Group",msg.sender_id.user_id) then
 testmod = true
 elseif msg.Distinguished then
@@ -2206,7 +2206,7 @@ return merolua.sendText(msg.chat_id,msg.id,'*\n◉︙عليك الاشتراك �
 end
 end
 end
-if msg.content.Merotele == "messagePhoto" then  -- الصور
+if msg.content. LuaTele == "messagePhoto" then  -- الصور
 if Redis:sismember(hawks.."HaWkS:Distinguishedall:Group",msg.sender_id.user_id) then
 testmod = true
 elseif msg.Distinguished then
@@ -2253,7 +2253,7 @@ print('This is Photo delete')
 end
 if msg.content.photo and Redis:get(hawks.."HaWkS:Chat:Photo"..msg_chat_id..":"..msg.sender_id.user_id) then
 local ChatPhoto = merolua.setChatPhoto(msg_chat_id,msg.content.photo.sizes[2].photo.remote.id)
-if (ChatPhoto.Merotele == "error") then
+if (ChatPhoto. LuaTele == "error") then
 Redis:del(hawks.."HaWkS:Chat:Photo"..msg_chat_id..":"..msg.sender_id.user_id)
 return merolua.sendText(msg_chat_id,msg_id,"◉︙لا استطيع تغيير صوره المجموعه لاني لست ادمن او ليست لديه الصلاحيه ","md",true)    
 end
@@ -2269,15 +2269,15 @@ or text and text:match("[Hh][Tt][Tt][Pp][Ss]://")
 or text and text:match("[Hh][Tt][Tt][Pp]://") 
 or text and text:match("[Ww][Ww][Ww].") 
 or text and text:match(".[Cc][Oo][Mm]")) or text and text:match("[Hh][Tt][Tt][Pp][Ss]://") or text and text:match("[Hh][Tt][Tt][Pp]://") or text and text:match("[Ww][Ww][Ww].") or text and text:match(".[Cc][Oo][Mm]") or text and text:match(".[Tt][Kk]") or text and text:match(".[Mm][Ll]") or text and text:match(".[Oo][Rr][Gg]")
-or msg.content.Merotele == "messageContact" 
-or msg.content.Merotele == "messageSticker"
-or msg.content.Merotele == "messageVideoNote" 
-or msg.content.Merotele == "messageDocument" 
-or msg.content.Merotele == "messageAudio" 
-or msg.content.Merotele == "messageVideo" 
-or msg.content.Merotele == "messageVoiceNote" 
-or msg.content.Merotele == "messageAnimation" 
-or msg.content.Merotele == "messagePhoto" then
+or msg.content. LuaTele == "messageContact" 
+or msg.content. LuaTele == "messageSticker"
+or msg.content. LuaTele == "messageVideoNote" 
+or msg.content. LuaTele == "messageDocument" 
+or msg.content. LuaTele == "messageAudio" 
+or msg.content. LuaTele == "messageVideo" 
+or msg.content. LuaTele == "messageVoiceNote" 
+or msg.content. LuaTele == "messageAnimation" 
+or msg.content. LuaTele == "messagePhoto" then
 local tphlesh_Group = Redis:get(hawks.."HaWkS:Lock:tphlesh"..msg_chat_id)
 if not msg.Distinguished and tphlesh_Group then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
@@ -4820,7 +4820,7 @@ Redis:del(hawks..'HaWkS:Channel:Redis'..msg_chat_id..':'..msg.sender_id.user_id)
 if msg.forward_info then
 if msg.forward_info.origin.chat_id then          
 AbsId = msg.forward_info.origin.chat_id
-local StatusMember = merolua.getChatMember(AbsId,hawks).status.Merotele
+local StatusMember = merolua.getChatMember(AbsId,hawks).status. LuaTele
 if (StatusMember ~= "chatMemberStatusAdministrator") then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙البوت عضو في القناة يرجى رفع البوت ادمن واعادة وضع الاشتراك ","md",true)  
 end
@@ -4836,7 +4836,7 @@ return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا يوجد حس�
 end
 local ChannelUser = text:gsub('@','')
 if UserId_Info.type.is_channel == true then
-local StatusMember = merolua.getChatMember(UserId_Info.id,hawks).status.Merotele
+local StatusMember = merolua.getChatMember(UserId_Info.id,hawks).status. LuaTele
 if (StatusMember ~= "chatMemberStatusAdministrator") then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙البوت عضو في القناة يرجى رفع البوت ادمن واعادة وضع الاشتراك ","md",true)  
 end
@@ -5466,7 +5466,7 @@ local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators",
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].bot_info == nil then
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Redis:sadd(hawks.."HaWkS:TheBasicsQ:Group"..msg_chat_id,v.member_id.user_id) 
 else
 Redis:sadd(hawks.."HaWkS:Addictive:Group"..msg_chat_id,v.member_id.user_id) 
@@ -5503,7 +5503,7 @@ end
 if Redis:sismember(hawks..'Black:listBan:',msg_chat_id) then
 return merolua.sendText(msg_chat_id,msg_id,"\n*◉︙عذرآ المجموعه محظوره من التفعيل *","md",true)  
 end
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 local AddedBot = true
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -5559,7 +5559,7 @@ local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators",
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].bot_info == nil then
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Redis:sadd(hawks.."HaWkS:TheBasicsQ:Group"..msg_chat_id,v.member_id.user_id) 
 else
 Redis:sadd(hawks.."HaWkS:Addictive:Group"..msg_chat_id,v.member_id.user_id) 
@@ -5620,7 +5620,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙المجموعه : {*['..Ge
 end
 end
 if text == 'تعطيل' and not msg.Developers then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 local AddedBot = true
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -8475,7 +8475,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if Controllerbanall(msg_chat_id,Message_Reply.sender_id.user_id) == true then 
@@ -8498,7 +8498,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:KtmAll:Groups",Message_Reply.sender_id.user_id) then
@@ -8516,7 +8516,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { 
 end
 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if Controllerbanall(msg_chat_id,UserId) == true then 
@@ -8536,7 +8536,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { 
 end
 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:KtmAll:Groups",UserId) then
@@ -8659,7 +8659,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if Redis:sismember(hawks.."HaWkS:ControlAll:Groups",Message_Reply.sender_id.user_id) then
@@ -8685,7 +8685,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:ControlAll:Groups",Message_Reply.sender_id.user_id) then
@@ -8708,7 +8708,7 @@ if YouCan == false then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
 end
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if Redis:sismember(hawks.."HaWkS:ControlAll:Groups",UserId) then
@@ -8731,7 +8731,7 @@ if YouCan == false then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
 end
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:ControlAll:Groups",UserId) then
@@ -9168,7 +9168,7 @@ end
 if text == 'صلاحياتي' and ChCheck(msg) then
 
 
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 return merolua.sendText(msg_chat_id,msg_id,"◉︙الصلاحيات : مالك المجموعه","md",true) 
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -9204,7 +9204,7 @@ if text == 'صلاحياته' and msg.reply_to_message_id ~= 0 then
 
 
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
-local StatusMember = merolua.getChatMember(msg_chat_id,Message_Reply.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,Message_Reply.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 return merolua.sendText(msg_chat_id,msg_id,"◉︙الصلاحيات : مالك المجموعه","md",true) 
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -9252,7 +9252,7 @@ end
 if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام معرف البوت ","md",true)  
 end
-local StatusMember = merolua.getChatMember(msg_chat_id,UserId_Info.id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,UserId_Info.id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 return merolua.sendText(msg_chat_id,msg_id,"◉︙الصلاحيات : مالك المجموعه","md",true) 
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -9346,7 +9346,7 @@ Redis:set(hawks..'Abs:Addme:Abs'..msg.chat_id,true)
 end
 
 if text and text:match('ضافني') and not Redis:get(hawks..'Abs:Addme:Abs'..msg.chat_id)  then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 return merolua.sendText(msg_chat_id,msg_id,"◉︙انت : مالك المجموعه","md",true) 
 end
@@ -10042,7 +10042,7 @@ if text == 'معلوماتي' and ChCheck(msg) or text == 'موقعي' and ChChe
 
 
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 StatusMemberChat = 'مالك المجموعه'
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -10099,9 +10099,9 @@ Lakb = StatusMember.status.custom_title
 else
 Lakb = 'مشرف'
 end
-if (StatusMember.status.Merotele == "chatMemberStatusCreator") then
+if (StatusMember.status. LuaTele == "chatMemberStatusCreator") then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙لقبك { '..Lakb..' }* ',"md",true)  
-elseif (StatusMember.status.Merotele == "chatMemberStatusAdministrator") then
+elseif (StatusMember.status. LuaTele == "chatMemberStatusAdministrator") then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙لقبك { '..Lakb..' }* ',"md",true)  
 else
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙انت عضو في المجموعه* ',"md",true)  
@@ -10118,7 +10118,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { 
 end
 
 
-local StatusMember = merolua.getChatMember(msg_chat_id,hawks).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,hawks).status. LuaTele
 if (StatusMember ~= "chatMemberStatusAdministrator") then
 return merolua.sendText(msg_chat_id,msg_id,'◉︙البوت عضو في المجموعه ',"md",true) 
 end
@@ -10208,7 +10208,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:sadd(hawks.."HaWkS:Distinguishedall:Group",Message_Reply.sender_id.user_id) 
@@ -10251,7 +10251,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:srem(hawks.."HaWkS:Distinguishedall:Group",Message_Reply.sender_id.user_id) 
@@ -10321,7 +10321,7 @@ return merolua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"◉︙ت
 end
 end
 if UserName[1] == "مالك" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Developers then
@@ -10419,7 +10419,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if TextMsg == 'مطور ثانوي' and ChCheck(msg) then
@@ -10449,7 +10449,7 @@ return merolua.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender_id.
 end
 end
 if TextMsg == "مالك" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Developers then
@@ -10545,13 +10545,13 @@ end
 if text and text:match('^تنزيل (.*) (%d+)$') and ChCheck(msg) then
 local UserId = {text:match('^تنزيل (.*) (%d+)$')}
 local UserInfo = merolua.getUser(UserId[2])
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if UserId[1] == 'مطور ثانوي' and ChCheck(msg) then
@@ -10581,7 +10581,7 @@ return merolua.sendText(msg_chat_id,msg_id,Reply_Status(UserId,"◉︙تم تن�
 end
 end
 if UserId[1] == "مالك" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Developers then
@@ -10711,7 +10711,7 @@ return merolua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"◉︙ت
 end
 end
 if UserName[1] == "مالك" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Developers then
@@ -10815,7 +10815,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if TextMsg == 'مطور ثانوي' and ChCheck(msg) then
@@ -10845,7 +10845,7 @@ return merolua.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender_id.
 end
 end
 if TextMsg == "مالك" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Developers then
@@ -10945,13 +10945,13 @@ end
 if text and text:match('^رفع (.*) (%d+)$') and ChCheck(msg) then
 local UserId = {text:match('^رفع (.*) (%d+)$')}
 local UserInfo = merolua.getUser(UserId[2])
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if UserId[1] == 'مطور ثانوي' and ChCheck(msg) then
@@ -10981,7 +10981,7 @@ return merolua.sendText(msg_chat_id,msg_id,Reply_Status(UserId,"◉︙تم تر�
 end
 end
 if UserId[1] == "مالك" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Developers then
@@ -11284,7 +11284,7 @@ end
 local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 local UserInfo = merolua.getUser(v.member_id.user_id)
 if UserInfo.first_name ~= "" then
 if UserInfo.username then
@@ -11438,7 +11438,7 @@ data = {{{text = '- مسح المطورين', data = msg.sender_id.user_id..'/De
 return merolua.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المالكين' and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.Originators then
@@ -12416,7 +12416,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,Message_Reply.sender_id.user_id) then
@@ -12455,7 +12455,7 @@ if not msg.Originators and not Redis:get(hawks.."HaWkS:Status:BanId"..msg_chat_i
 return merolua.sendText(msg_chat_id,msg_id,"◉︙تم تعطيل (الحظر : الطرد : التقييد) من قبل المنشئين","md",true)
 end 
 local UserInfo = merolua.getUser(UserId[3])
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,UserId[3]) then
@@ -12576,7 +12576,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if Controllerbanall(msg_chat_id,Message_Reply.sender_id.user_id) == true then 
@@ -12601,7 +12601,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:BanAll:Groups",Message_Reply.sender_id.user_id) then
@@ -12623,7 +12623,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:BanAll:Groups",Message_Reply.sender_id.user_id) then
@@ -12661,7 +12661,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,Message_Reply.sender_id.user_id) then
@@ -12696,7 +12696,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 merolua.setChatMemberStatus(msg.chat_id,Message_Reply.sender_id.user_id,'restricted',{1,1,1,1,1,1,1,1,1})
@@ -12722,7 +12722,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if StatusSilent(msg_chat_id,Message_Reply.sender_id.user_id) then
@@ -12746,7 +12746,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:SilentGroup:Group"..msg_chat_id,Message_Reply.sender_id.user_id) then
@@ -12777,7 +12777,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,Message_Reply.sender_id.user_id) then
@@ -12804,7 +12804,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 merolua.setChatMemberStatus(msg.chat_id,Message_Reply.sender_id.user_id,'restricted',{1,1,1,1,1,1,1,1})
@@ -12831,7 +12831,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,Message_Reply.sender_id.user_id) then
@@ -12849,7 +12849,7 @@ end
 
 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if Controllerbanall(msg_chat_id,UserId) == true then 
@@ -12871,7 +12871,7 @@ end
 
 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 merolua.setChatMemberStatus(msg.chat_id,UserId,'restricted',{1,1,1,1,1,1,1,1,1})
@@ -12890,7 +12890,7 @@ end
 
 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 merolua.setChatMemberStatus(msg.chat_id,UserId,'restricted',{1,1,1,1,1,1,1,1,1})
@@ -12918,7 +12918,7 @@ if not msg.Originators and not Redis:get(hawks.."HaWkS:Status:BanId"..msg_chat_i
 return merolua.sendText(msg_chat_id,msg_id,"◉︙تم تعطيل (الحظر : الطرد : التقييد) من قبل المنشئين","md",true)
 end 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,UserId) then
@@ -12946,7 +12946,7 @@ if GetInfoBot(msg).BanUser == false then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
 end
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 merolua.setChatMemberStatus(msg.chat_id,UserId,'restricted',{1,1,1,1,1,1,1,1,1})
@@ -12969,7 +12969,7 @@ if GetInfoBot(msg).Delmsg == false then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙البوت ليس لديه صلاحيه مسح الرسائل* ',"md",true)  
 end
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if StatusSilent(msg_chat_id,UserId) then
@@ -12990,7 +12990,7 @@ end
 
 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if not Redis:sismember(hawks.."HaWkS:SilentGroup:Group"..msg_chat_id,UserId) then
@@ -13018,7 +13018,7 @@ if not msg.Originators and not Redis:get(hawks.."HaWkS:Status:BanId"..msg_chat_i
 return merolua.sendText(msg_chat_id,msg_id,"◉︙تم تعطيل (الحظر : الطرد : التقييد) من قبل المنشئين","md",true)
 end 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,UserId) then
@@ -13042,7 +13042,7 @@ if GetInfoBot(msg).BanUser == false then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
 end
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 merolua.setChatMemberStatus(msg.chat_id,UserId,'restricted',{1,1,1,1,1,1,1,1})
@@ -13066,7 +13066,7 @@ if not msg.Originators and not Redis:get(hawks.."HaWkS:Status:BanId"..msg_chat_i
 return merolua.sendText(msg_chat_id,msg_id,"◉︙تم تعطيل (الحظر : الطرد : التقييد) من قبل المنشئين","md",true)
 end 
 local UserInfo = merolua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
+if UserInfo. LuaTele == "error" and UserInfo.code == 6 then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,UserId) then
@@ -13089,7 +13089,7 @@ end
 if StatusCanOrNotCan(msg_chat_id,msg.sender_id.user_id) then
 return merolua.sendText(msg_chat_id,msg_id,"\n*◉︙عذرآ لا تستطيع استخدام الامر على { "..Controller(msg_chat_id,msg.sender_id.user_id).." } *","md",true)  
 end
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 KickMe = true
 elseif (StatusMember == "chatMemberStatusAdministrator") then
@@ -13117,7 +13117,7 @@ local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators",
 listAdmin = '\n*◉︙قائمه المشرفين \n — — — — — — — — —*\n'
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Creator = '→ *{ المالك }*'
 else
 Creator = ""
@@ -13146,7 +13146,7 @@ x = 0
 y = 0
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].bot_info == nil then
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Redis:sadd(hawks.."HaWkS:TheBasicsQ:Group"..msg_chat_id,v.member_id.user_id) 
 x = x + 1
 else
@@ -13167,7 +13167,7 @@ end
 local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 local UserInfo = merolua.getUser(v.member_id.user_id)
 if UserInfo.first_name == "" then
 merolua.sendText(msg_chat_id,msg_id,"*◉︙اوبس , المالك حسابه محذوف *","md",true)  
@@ -13218,7 +13218,7 @@ end
 local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 local UserInfo = merolua.getUser(v.member_id.user_id)
 if UserInfo.first_name == "" then
 merolua.sendText(msg_chat_id,msg_id,"*◉︙اوبس , المالك حسابه محذوف *","md",true)  
@@ -13246,7 +13246,7 @@ listBots = '\n*◉︙قائمه البوتات \n — — — — — — — �
 x = 0
 for k, v in pairs(List_Members) do
 local UserInfo = merolua.getUser(v.member_id.user_id)
-if Info_Members.members[k].status.Merotele == "chatMemberStatusAdministrator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusAdministrator" then
 x = x + 1
 Admin = '→ *{ ادمن }*'
 else
@@ -13274,7 +13274,7 @@ x = 0
 local y = false
 restricted = '\n*◉︙قائمه المقيديين \n — — — — — — — — —*\n'
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.is_member == true and Info_Members.members[k].status.Merotele == "chatMemberStatusRestricted" then
+if Info_Members.members[k].status.is_member == true and Info_Members.members[k].status. LuaTele == "chatMemberStatusRestricted" then
 y = true
 x = x + 1
 local UserInfo = merolua.getUser(v.member_id.user_id)
@@ -15789,7 +15789,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if Redis:sismember(hawks.."HaWkS:DevelopersQ:Groups",Message_Reply.sender_id.user_id) then
@@ -16120,7 +16120,7 @@ local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&video=https://t.me/PPPUUUP/257&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == "تنزيل جميع الرتب" and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") then
 statusvar = true
 elseif msg.TheBasicsQ then
@@ -16157,7 +16157,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 local SetCustomTitle = https.request("https://api.telegram.org/bot"..Token.."/setChatAdministratorCustomTitle?chat_id="..msg_chat_id.."&user_id="..Message_Reply.sender_id.user_id.."&custom_title="..CustomTitle)
@@ -16222,7 +16222,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 local SetAdmin = merolua.setChatMemberStatus(msg.chat_id,Message_Reply.sender_id.user_id,'administrator',{1 ,1, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, ''})
@@ -16295,7 +16295,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 local SetAdmin = merolua.setChatMemberStatus(msg.chat_id,Message_Reply.sender_id.user_id,'administrator',{0 ,0, 0, 0, 0, 0, 0 ,0, 0})
@@ -16637,7 +16637,7 @@ Redis:del(hawks.."HaWkS:Developers:Groups")
 return merolua.sendText(msg_chat_id,msg_id,"*◉︙تم مسح {"..#Info_Members.."} من المطورين *","md",true)
 end
 if TextMsg == 'المالكين' and ChCheck(msg) then
-local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status.Merotele
+local StatusMember = merolua.getChatMember(msg_chat_id,msg.sender_id.user_id).status. LuaTele
 if (StatusMember == "chatMemberStatusCreator") and ChCheck(msg) then
 statusvar = true
 elseif msg.Developers then
@@ -16659,7 +16659,7 @@ local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators",
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].bot_info == nil then
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Redis:sadd(hawks.."HaWkS:TheBasicsQ:Group"..msg_chat_id,v.member_id.user_id) 
 end
 end
@@ -16787,7 +16787,7 @@ local List_Members = Info_Members.members
 x = 0
 local y = false
 for k, v in pairs(List_Members) do
-if Info_Members.members[k].status.is_member == true and Info_Members.members[k].status.Merotele == "chatMemberStatusRestricted" then
+if Info_Members.members[k].status.is_member == true and Info_Members.members[k].status. LuaTele == "chatMemberStatusRestricted" then
 merolua.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'restricted',{1,1,1,1,1,1,1,1})
 x = x + 1
 y = true
@@ -16816,7 +16816,7 @@ local List_Members = Info_Members.members
 x = 0
 for k, v in pairs(List_Members) do
 local Ban_Bots = merolua.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'banned',0)
-if Ban_Bots.Merotele == "ok" then
+if Ban_Bots. LuaTele == "ok" then
 x = x + 1
 end
 end
@@ -16840,7 +16840,7 @@ local y = false
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
 UNBan_Bots = merolua.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'restricted',{1,1,1,1,1,1,1,1,1})
-if UNBan_Bots.Merotele == "ok" then
+if UNBan_Bots. LuaTele == "ok" then
 x = x + 1
 y = true
 end
@@ -16869,9 +16869,9 @@ x = 0
 local y = false
 for k, v in pairs(List_Members) do
 local UserInfo = merolua.getUser(v.member_id.user_id)
-if UserInfo.type.Merotele == "userTypeDeleted" then
+if UserInfo.type. LuaTele == "userTypeDeleted" then
 local userTypeDeleted = merolua.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'banned',0)
-if userTypeDeleted.Merotele == "ok" then
+if userTypeDeleted. LuaTele == "ok" then
 x = x + 1
 y = true
 end
@@ -16902,9 +16902,9 @@ x = 0
 local y = false
 for k, v in pairs(List_Members) do
 local UserInfo = merolua.getUser(v.member_id.user_id)
-if UserInfo.type.Merotele == "userTypeDeleted" then
+if UserInfo.type. LuaTele == "userTypeDeleted" then
 local userTypeDeleted = merolua.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'banned',0)
-if userTypeDeleted.Merotele == "ok" then
+if userTypeDeleted. LuaTele == "ok" then
 x = x + 1
 y = true
 end
@@ -16933,7 +16933,7 @@ local List_Members = Info_Members.members
 x = 0
 for k, v in pairs(List_Members) do
 local Ban_Bots = merolua.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'banned',0)
-if Ban_Bots.Merotele == "ok" then
+if Ban_Bots. LuaTele == "ok" then
 x = x + 1
 end
 end
@@ -17218,7 +17218,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not msg.Addictive then
@@ -17230,7 +17230,7 @@ if msg.can_be_deleted_for_all_users == false then
 return merolua.sendText(msg_chat_id,msg_id,"\n*◉︙عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 local GetMemberStatus = merolua.getChatMember(msg_chat_id,Message_Reply.sender_id.user_id).status
-if GetMemberStatus.Merotele == "chatMemberStatusRestricted" then
+if GetMemberStatus. LuaTele == "chatMemberStatusRestricted" then
 Restricted = 'مقيد'
 else
 Restricted = 'غير مقيد'
@@ -17273,7 +17273,7 @@ if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام معرف البوت ","md",true)  
 end
 local GetMemberStatus = merolua.getChatMember(msg_chat_id,UserId_Info.id).status
-if GetMemberStatus.Merotele == "chatMemberStatusRestricted" then
+if GetMemberStatus. LuaTele == "chatMemberStatusRestricted" then
 Restricted = 'مقيد'
 else
 Restricted = 'غير مقيد'
@@ -17301,7 +17301,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 if not msg.Addictive then
@@ -17313,7 +17313,7 @@ if msg.can_be_deleted_for_all_users == false then
 return merolua.sendText(msg_chat_id,msg_id,"\n*◉︙عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 local GetMemberStatus = merolua.getChatMember(msg_chat_id,Message_Reply.sender_id.user_id).status
-if GetMemberStatus.Merotele == "chatMemberStatusRestricted" then
+if GetMemberStatus. LuaTele == "chatMemberStatusRestricted" then
 Restricted = 'مقيد'
 merolua.setChatMemberStatus(msg.chat_id,Message_Reply.sender_id.user_id,'restricted',{1,1,1,1,1,1,1,1})
 else
@@ -17362,7 +17362,7 @@ if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام معرف البوت ","md",true)  
 end
 local GetMemberStatus = merolua.getChatMember(msg_chat_id,UserId_Info.id).status
-if GetMemberStatus.Merotele == "chatMemberStatusRestricted" then
+if GetMemberStatus. LuaTele == "chatMemberStatusRestricted" then
 Restricted = 'مقيد'
 merolua.setChatMemberStatus(msg.chat_id,UserId_Info.id,'restricted',{1,1,1,1,1,1,1,1})
 else
@@ -18041,7 +18041,7 @@ local x = 0
 for k,v in pairs(list) do  
 local Get_Chat = merolua.getChat(v)
 local ChatAction = merolua.sendChatAction(v,'Typing')
-if ChatAction.Merotele ~= "ok" then
+if ChatAction. LuaTele ~= "ok" then
 x = x + 1
 Redis:srem(hawks..'HaWkS:Num:User:Pv',v)
 end
@@ -18833,7 +18833,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:incrby(hawks.."HaWkS:Num:Add:Games"..msg.chat_id..Message_Reply.sender_id.user_id, text:match("^اضف نقاط (%d+)$"))  
@@ -18850,7 +18850,7 @@ local UserInfo = merolua.getUser(UserId[1])
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:incrby(hawks.."HaWkS:Num:Add:Games"..msg.chat_id..UserId[1], UserId[2])  
@@ -18879,7 +18879,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:incrby(hawks..'HaWkS:Num:Message:Edit'..msg.chat_id..Message_Reply.sender_id.user_id, text:match("^اضف سحكات (%d+)$"))  
@@ -18896,7 +18896,7 @@ local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:incrby(hawks.."HaWkS:Num:Message:User"..msg.chat_id..":"..Message_Reply.sender_id.user_id, text:match("^اضف رسائل (%d+)$"))  
@@ -18913,7 +18913,7 @@ local UserInfo = merolua.getUser(UserId[1])
 if UserInfo.message == "Invalid user ID" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
 end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
+if UserInfo and UserInfo.type and UserInfo.type. LuaTele == "userTypeBot" then
 return merolua.sendText(msg_chat_id,msg_id,"\n◉︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
 end
 Redis:incrby(hawks.."HaWkS:Num:Message:User"..msg.chat_id..UserId[1], UserId[2])  
@@ -19297,7 +19297,7 @@ local x = 0
 for k,v in pairs(list) do  
 local Get_Chat = merolua.getChat(v)
 local ChatAction = merolua.sendChatAction(v,'Typing')
-if ChatAction.Merotele ~= "ok" then
+if ChatAction. LuaTele ~= "ok" then
 x = x + 1
 Redis:srem(hawks..'HaWkS:Num:User:Pv',v)
 end
@@ -19318,7 +19318,7 @@ for k,v in pairs(list) do
 local Get_Chat = merolua.getChat(v)
 if Get_Chat.id then
 local statusMem = merolua.getChatMember(Get_Chat.id,hawks)
-if statusMem.status.Merotele == "chatMemberStatusMember" then
+if statusMem.status. LuaTele == "chatMemberStatusMember" then
 x = x + 1
 merolua.sendText(Get_Chat.id,0,'*◉︙البوت عضو في المجموعه سوف اغادر ويمكنك تفعيلي مره اخره *',"md")
 Redis:srem(hawks..'HaWkS:ChekBotAdd',Get_Chat.id)
@@ -19767,7 +19767,7 @@ local IdSudo = merolua.getChat(ListGet[1]).id
 local IdUser = merolua.getChat(ListGet[2]).id
 local FedMsg = merolua.sendForwarded(IdSudo, 0, IdUser, msg_id)
 Redis:setex(hawks.."HaWkS:Twasl:UserId"..msg.date,172800,IdUser)
-if FedMsg.content.Merotele == "messageSticker" then
+if FedMsg.content. LuaTele == "messageSticker" then
 merolua.sendText(IdSudo,0,Reply_Status(IdUser,'◉︙قام بارسال الملصق').Reply,"md",true)  
 end
 return merolua.sendText(IdUser,msg_id,Reply_Status(IdUser,'◉︙تم ارسال رسالتك الى المطور').Reply,"md",true)  
@@ -19825,7 +19825,7 @@ end -- File_Bot_Run
 
 function CallBackLua(data) --- هذا الكالباك بي الابديت 
 --var(data) 
-if data and data.Merotele and data.Merotele == "updateNewInlineCallbackQuery" then
+if data and data. LuaTele and data. LuaTele == "updateNewInlineCallbackQuery" then
 local Text = merolua.base64_decode(data.payload.data)
 if Text and Text:match('/Hmsa1@(%d+)@(%d+)/(%d+)') then
 local ramsesadd = {string.match(Text,"^/Hmsa1@(%d+)@(%d+)/(%d+)$")}
@@ -19837,7 +19837,7 @@ https.request("https://api.telegram.org/bot"..Token..'/answerCallbackQuery?callb
 end
 end
 end
-if data and data.Merotele and data.Merotele == "updateNewInlineQuery" then
+if data and data. LuaTele and data. LuaTele == "updateNewInlineQuery" then
 local Text = data.query
 if Text and Text:match("^(.*) @(.*)$")  then
 local username = {string.match(Text,"^(.*) @(.*)$")}
@@ -19854,15 +19854,15 @@ end
 end
 end
 
-if data and data.Merotele and data.Merotele == "updateSupergroup" then
+if data and data. LuaTele and data. LuaTele == "updateSupergroup" then
 local Get_Chat = merolua.getChat('-100'..data.supergroup.id)
-if data.supergroup.status.Merotele == "chatMemberStatusBanned" then
+if data.supergroup.status. LuaTele == "chatMemberStatusBanned" then
 Redis:srem(hawks.."HaWkS:ChekBotAdd",'-100'..data.supergroup.id)
 
 return merolua.sendText(Sudo_Id,0,'*\n◉︙تم طرد البوت من مجموعه جديده \n◉︙اسم المجموعه : '..Get_Chat.title..'\n◉︙ايدي المجموعه :*`-100'..data.supergroup.id..'`\n◉︙تم مسح جميع البيانات المتعلقه بالمجموعه',"md")
 end
 
-elseif data and data.Merotele and data.Merotele == "updateMessageSendSucceeded" then
+elseif data and data. LuaTele and data. LuaTele == "updateMessageSendSucceeded" then
 local msg = data.message
 local Chat = msg.chat_id
 if msg.content.text then
@@ -19943,8 +19943,8 @@ Redis:del(hawks.."HaWkS:PinMsegees:"..msg.chat_id)
 end
 end
 
-elseif data and data.Merotele and data.Merotele == "updateNewMessage" then
-if data.message.content.Merotele == "messageChatDeleteMember" or data.message.content.Merotele == "messageChatAddMembers" or data.message.content.Merotele == "messagePinMessage" or data.message.content.Merotele == "messageChatChangeTitle" or data.message.content.Merotele == "messageChatJoinByLink" then
+elseif data and data. LuaTele and data. LuaTele == "updateNewMessage" then
+if data.message.content. LuaTele == "messageChatDeleteMember" or data.message.content. LuaTele == "messageChatAddMembers" or data.message.content. LuaTele == "messagePinMessage" or data.message.content. LuaTele == "messageChatChangeTitle" or data.message.content. LuaTele == "messageChatJoinByLink" then
 if Redis:get(hawks.."HaWkS:Lock:tagservr"..data.message.chat_id) then
 merolua.deleteMessages(data.message.chat_id,{[1]= data.message.id})
 end
@@ -19953,7 +19953,7 @@ if tonumber(data.message.sender_user_id) == tonumber(hawks) then
 return false
 end
 File_Bot_Run(data.message,data.message)
-elseif data and data.Merotele and data.Merotele == "updateMessageEdited" then
+elseif data and data. LuaTele and data. LuaTele == "updateMessageEdited" then
 -- data.chat_id -- data.message_id
 local Message_Edit = merolua.getMessage(data.chat_id, data.message_id)
 if Message_Edit.sender_id.user_id == hawks then
@@ -20018,7 +20018,7 @@ local names = UserInfo.first_name
 local monsha = Redis:smembers(hawks.."HaWkS:TheBasicsQ:Group"..data.chat_id) 
 Redis:incr(hawks..'HaWkS:Num:Message:Edit'..data.chat_id..Message_Edit.sender_id.user_id)
 if not data.Originators and Message_Edit.sender_id.user_id ~= tonumber(hawks) then
-if Message_Edit.content.Merotele == "messageContact" or Message_Edit.content.Merotele == "messageVideoNote" or Message_Edit.content.Merotele == "messageDocument" or Message_Edit.content.Merotele == "messageAudio" or Message_Edit.content.Merotele == "messageVideo" or Message_Edit.content.Merotele == "messageVoiceNote" or Message_Edit.content.Merotele == "messageAnimation" or Message_Edit.content.Merotele == "messagePhoto" then
+if Message_Edit.content. LuaTele == "messageContact" or Message_Edit.content. LuaTele == "messageVideoNote" or Message_Edit.content. LuaTele == "messageDocument" or Message_Edit.content. LuaTele == "messageAudio" or Message_Edit.content. LuaTele == "messageVideo" or Message_Edit.content. LuaTele == "messageVoiceNote" or Message_Edit.content. LuaTele == "messageAnimation" or Message_Edit.content. LuaTele == "messagePhoto" then
 if Redis:get(hawks.."HaWkS:Lock:edit"..data.chat_id) then
 if #monsha ~= 0 then 
 local ListMembers = '\n*◉︙تاك للمالكين  \n — — — — — — — — —*\n'
@@ -20039,7 +20039,7 @@ merolua.deleteMessages(data.chat_id,{[1]= data.message_id})
 end
 end
 end
-elseif data and data.Merotele and data.Merotele == "updateNewCallbackQuery" then
+elseif data and data. LuaTele and data. LuaTele == "updateNewCallbackQuery" then
 -- data.chat_id
 -- data.payload.data
 -- data.sender_user_id
@@ -21971,7 +21971,7 @@ x = 0
 y = 0
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].bot_info == nil then
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Redis:sadd(hawks.."HaWkS:TheBasicsQ:Group"..UserId[2],v.member_id.user_id) 
 x = x + 1
 else
@@ -22079,7 +22079,7 @@ x = 0
 y = 0
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].bot_info == nil then
-if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
+if Info_Members.members[k].status. LuaTele == "chatMemberStatusCreator" then
 Redis:sadd(hawks.."HaWkS:TheBasicsQ:Group"..UserId[2],v.member_id.user_id) 
 x = x + 1
 else
